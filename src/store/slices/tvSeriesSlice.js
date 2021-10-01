@@ -52,7 +52,7 @@ export const tvSeriesSlice = createSlice({
     })
     builder.addCase(getSimilarTvSeries.fulfilled,(state,action)=>{
       state.similarTvSeries=action.payload
-      state.tvSeries=[...state.tvSeries, ...state.similarTvSeries]
+      //state.tvSeries=[...state.tvSeries, ...state.similarTvSeries]
       console.log(state.tvSeries)
     });
   },
