@@ -14,7 +14,7 @@ const SeriesDetails=()=>{
       },[dispatch,id]);
     
       
-      const mov=tvSeries.filter((data)=> data.id===id)
+      const mov=tvSeries.filter((data)=> data.id.toString()===id)
       const back = "https://image.tmdb.org/t/p/w500" + mov[0].backdrop_path;
       //const bg='https://image.tmdb.org/t/p/w500'+mov[0].poster_path;
       let similarTvSeriesDisplay=[]
