@@ -4,7 +4,7 @@ import { useSelector,useDispatch } from "react-redux";
 import { getSimilarTvSeries,getTvSeriesDetails } from "../store/slices/tvSeriesSlice";
 
 const SeriesDetails=()=>{
-    const {tvSeries,similarTvSeries,seriesDetails} = useSelector((state) => state.tvSeries);
+    const {similarTvSeries,seriesDetails} = useSelector((state) => state.tvSeries);
   
     
       const {id} = useParams();
@@ -23,7 +23,7 @@ const SeriesDetails=()=>{
           similarTvSeriesDisplay=similarTvSeries
         }
       
-      return <div><div id="detailMovie" style={{backgroundImage:`url(${back})`,backgroundSize: 'cover',
+      return <div><div id="detailMovie" style={{backgroundImage:`url(https://image.tmdb.org/t/p/w500${seriesDetails.poster_path})`,backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',height:'500px'}}>
            <div  style={{width:"100%",paddingTop:"100px",height:"460px",paddingLeft:"40px",display:"flex",paddingRight:"40px"}}>
               <div className="product"style={{width:"260px"}}>
