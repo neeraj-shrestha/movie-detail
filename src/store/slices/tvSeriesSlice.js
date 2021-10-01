@@ -27,11 +27,22 @@ export const getSimilarTvSeries = createAsyncThunk(
     
   }
 );
+export const getTvSeriesDetails= createAsyncThunk(
+  `${sliceName}/getTvSeriesDetails`,
+  async (payload, thunkAPI) => {
+    console.log("kdkd")
+    const response = await axios.get(`https://api.themoviedb.org/3/tv/${payload}?api_key=68ba12927b8477ed02ce38b248c90973&language=en-US`)
+    console.log(response.data)
+    return response.data;
+    
+  }
+);
 export const tvSeriesSlice = createSlice({
   name: sliceName,
   initialState: {
     series: [],
     tvSeries:[],
+    seriesDetails: [],
     similarTvSeries:[]
 
   },
@@ -55,6 +66,10 @@ export const tvSeriesSlice = createSlice({
       //state.tvSeries=[...state.tvSeries, ...state.similarTvSeries]
       console.log(state.tvSeries)
     });
+    //for movies details
+    builder.addCase(getTvSeriesDetails.fulfilled,(state,action)=>{
+      state.seriesDetails=action.payload
+    })
   },
 });
 

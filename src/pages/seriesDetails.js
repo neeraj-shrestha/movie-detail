@@ -1,22 +1,19 @@
 import React from "react";
 import {useParams,Link} from 'react-router-dom';
 import { useSelector,useDispatch } from "react-redux";
-import { getSimilarTvSeries } from "../store/slices/tvSeriesSlice";
+import { getSimilarTvSeries,getTvSeriesDetails } from "../store/slices/tvSeriesSlice";
 
 const SeriesDetails=()=>{
-    const {tvSeries,similarTvSeries} = useSelector((state) => state.tvSeries);
+    const {tvSeries,similarTvSeries,seriesDetails} = useSelector((state) => state.tvSeries);
   
     
       const {id} = useParams();
       const dispatch = useDispatch();
       React.useEffect(() => {
+        dispatch(getTvSeriesDetails(id));
         dispatch(getSimilarTvSeries(id));
       },[dispatch,id]);
     
-      
-      const mov=tvSeries.filter((data)=> data.id.toString()===id)
-      const back = "https://image.tmdb.org/t/p/w500" + mov[0].backdrop_path;
-      //const bg='https://image.tmdb.org/t/p/w500'+mov[0].poster_path;
       let similarTvSeriesDisplay=[]
         if(similarTvSeries.length>6){
           for(var i=0;i<6;i++){
@@ -26,18 +23,16 @@ const SeriesDetails=()=>{
           similarTvSeriesDisplay=similarTvSeries
         }
       
-  
-      console.log(mov[0])
       return <div><div id="detailMovie" style={{backgroundImage:`url(${back})`,backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',height:'500px'}}>
            <div  style={{width:"100%",paddingTop:"100px",height:"460px",paddingLeft:"40px",display:"flex",paddingRight:"40px"}}>
               <div className="product"style={{width:"260px"}}>
-                <img alt="" src={`https://image.tmdb.org/t/p/w500${mov[0].poster_path}`}/>
+                <img alt="" src={`https://image.tmdb.org/t/p/w500${seriesDetails.poster_path}`}/>
               </div>
               <div className="titlefloat"  style={{color: "white", background: "linear-gradient(rgb(0 0 0 / 95%),rgb(172 23 23 / 0%))"}}>
-                <h1>{mov[0].name}</h1>
-                <label>First air date: {mov[0].first_air_date}</label>
-                <p>{mov[0].overview}</p>
+                <h1>{seriesDetails.name}</h1>
+                <label>First air date: {seriesDetails.first_air_date}</label>
+                <p>{seriesDetails.overview}</p>
                 </div>
             </div>
       </div>
