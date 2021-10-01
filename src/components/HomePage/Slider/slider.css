@@ -1,0 +1,12 @@
+.sr-only{
+    display: none;
+}
+
+.carousel-caption{
+    bottom: 0%;
+    left: 0;
+    right: 0;
+    padding: 10px 20px;
+    width: 100%;
+    background: linear-gradient(rgb(0 0 0 / 95%),rgb(172 23 23 / 0%))
+}
