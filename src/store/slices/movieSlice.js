@@ -3,7 +3,7 @@ import axios from "axios";
 
 const sliceName = "movie";
 const popularMovies =
-  "https://api.themoviedb.org/3/movie?api_key=68ba12927b8477ed02ce38b248c90973&language=en-US";
+  "https://api.themoviedb.org/3/movie/popular?api_key=68ba12927b8477ed02ce38b248c90973&language=en-US";
 const movieGenre="https://api.themoviedb.org/3/genre/movie/list?api_key=68ba12927b8477ed02ce38b248c90973&language=en-US"
 
 //const videos="https://api.themoviedb.org/3/movie/550988/videos?api_key=68ba12927b8477ed02ce38b248c90973&language=en-US"
