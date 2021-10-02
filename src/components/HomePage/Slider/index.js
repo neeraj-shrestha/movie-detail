@@ -23,7 +23,11 @@ const SliderImage = () => {
           <Carousel.Caption>
             <h3>{movie.caption}</h3>
             <p>{movie.overview}</p>
-          </Carousel.Caption>
+            </Carousel.Caption>
+          </Link>
+        </Carousel.Item>
+     })} 
+     </Carousel></Carousel.Caption>
           </Link>
         </Carousel.Item>
      })} 
