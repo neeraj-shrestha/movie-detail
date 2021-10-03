@@ -59,15 +59,19 @@ export const movieSlice = createSlice({
     apiMovies: [],
     movieDetails:[],
     genreMovies:[],
-    similarMovies:[]
+    similarMovies:[],
+    status:'idle'
   },
   reducers: {
-    addImages: (state, action) => {
-      state.movies = action.payload;
+    addMovies: (state, action) => {
+      //state.movies = action.payload;
     },
   },
   extraReducers: (builder) => {
     //for popular movies
+    builder.addCase(getMostPopularMoviesApi.pending, (state, action) =>{
+      state.status="pending"
+    })
     builder.addCase(getMostPopularMoviesApi.fulfilled, (state, action) => {
       let data = action.payload.map((movie) => {
         var path = movie.backdrop_path;
