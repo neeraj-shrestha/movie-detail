@@ -31,7 +31,7 @@ const Home = () => {
   return (
     <div>
       <SliderImage />
-      <PopularMovies movies={data} title="Popular"/>
+      <PopularMovies movies={data} title="Popular" movienum = "8"/>
       <PopularTvSeries tvSeries={series} title="Popular"/>
     </div>
   );

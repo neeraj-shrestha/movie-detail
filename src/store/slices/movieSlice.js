@@ -45,7 +45,6 @@ export const getSimilarMovies = createAsyncThunk(
 export const getMovieDetails= createAsyncThunk(
   `${sliceName}/getMovieDetails`,
   async (payload, thunkAPI) => {
-    console.log("kdkd")
     const response = await axios.get(`https://api.themoviedb.org/3/movie/${payload}?api_key=68ba12927b8477ed02ce38b248c90973&language=en-US`)
     console.log(response.data)
     return response.data;
