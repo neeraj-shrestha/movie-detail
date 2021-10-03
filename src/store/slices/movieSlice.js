@@ -64,7 +64,7 @@ export const movieSlice = createSlice({
   },
   reducers: {
     addMovies: (state, action) => {
-      //state.movies = action.payload;
+      //state.movies = action.payload
     },
   },
   extraReducers: (builder) => {
