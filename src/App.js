@@ -1,12 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link ,} from "react-router-dom";
 import Home from "./pages/home";
 import "./App.css";
 import React from "react";
 import Movies from "./pages/movies";
 import {
   getGenreOfMovies,
-  getMostPopularMoviesApi,
+  getMostPopularMoviesApi
 } from "./store/slices/movieSlice";
 import MovieDetails from "./pages/movieDetails";
 import TvSeries from "./pages/tvSeries";
@@ -16,13 +16,16 @@ import { getMostPopularTvSeriesApi } from "./store/slices/tvSeriesSlice";
 
 const App = () => {
   const { genreMovies } = useSelector((state) => state.movie);
+  
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(getMostPopularMoviesApi());
     dispatch(getMostPopularTvSeriesApi());
     dispatch(getGenreOfMovies());
+    
   }, [dispatch]);
-
+ 
+  
   return (
     <Router>
       <nav className="navbar">

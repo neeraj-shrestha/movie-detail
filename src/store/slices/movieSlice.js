@@ -35,7 +35,6 @@ export const getGenreOfMovies = createAsyncThunk(
 export const getSimilarMovies = createAsyncThunk(
   `${sliceName}/getSimilarMovies`,
   async (payload, thunkAPI) => {
-    console.log("kdkd")
     const response = await axios.get(`https://api.themoviedb.org/3/movie/${payload}/similar?api_key=68ba12927b8477ed02ce38b248c90973&language=en-US&page=1`)
     console.log(response.data.results)
     return response.data.results;
@@ -93,7 +92,7 @@ export const movieSlice = createSlice({
     builder.addCase(getSimilarMovies.fulfilled,(state,action)=>{
       state.similarMovies=action.payload
       //state.apiMovies=[...state.apiMovies, ...state.similarMovies]
-      console.log(state.apiMovies)
+      //console.log(state.apiMovies)
     })
     //for movies details
     builder.addCase(getMovieDetails.fulfilled,(state,action)=>{

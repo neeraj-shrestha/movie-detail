@@ -1,0 +1,6 @@
+#genreClick span>a:hover{
+    color: firebrick;
+  }
+  #genreClick span>a{
+      color: floralwhite;
+  }

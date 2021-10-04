@@ -85,3 +85,6 @@
   #detailMovie{
     background-position: center
   }
+  #genreClick span>a:hover{
+    color: firebrick;
+  }
