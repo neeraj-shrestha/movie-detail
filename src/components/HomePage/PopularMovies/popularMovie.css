@@ -9,7 +9,7 @@
 
 #main_container{
     padding: 30px 50px;
-    background: rgb(92, 84, 84);
+    background: linear-gradient(180deg, black, #8a5353);
     text-align: center;
 }
 #main_container h1{
