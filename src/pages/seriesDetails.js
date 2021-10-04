@@ -31,7 +31,14 @@ const SeriesDetails=()=>{
               </div>
               <div className="titlefloat"  style={{color: "white", background: "linear-gradient(rgb(0 0 0 / 95%),rgb(172 23 23 / 0%))"}}>
                 <h1>{seriesDetails.name}</h1>
-                <label>First air date: {seriesDetails.first_air_date}</label>
+                <label>First air date: {seriesDetails.first_air_date}</label><br></br>
+                <label>status: {seriesDetails.status}</label><br></br>
+                <label>Seasons: {seriesDetails.number_of_seasons}</label><br></br>
+                {seriesDetails.genres&& <label id="genreClick">Genre: {seriesDetails.genres.map((gen)=>{
+                    return <span key={gen.id} >
+              <Link to={`/genre/${gen.id}`} style={{textDecoration:"none"}}>{gen.name} </Link>
+              </span>
+          })}</label> }
                 <p>{seriesDetails.overview}</p>
                 </div>
             </div>
